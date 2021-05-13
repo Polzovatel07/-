@@ -1,0 +1,32 @@
+/*Задан массив из k чисел. Найти число, наиболее часто встречающееся в
+этом массиве.*/
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "");
+    int massiv[5];
+    for (int i = 0; i < 5; i++) {
+        massiv[i] = rand() % 100;
+        cout << massiv[i] << "  " ;
+    };
+    int chislo = 0, max = 0, otvet = 0;
+    for (int i = 0; i < 5; i++) {    
+        for (int j = i; j < 5; j++)
+            if (massiv[i] == massiv[j])
+            {
+                chislo++;
+            }
+        if (max < chislo)
+        {
+            max = chislo;
+            otvet = i;
+        }
+    }
+    cout << endl<< "Число наиболее часто встречающееся в массиве - " << otvet << endl;
+    system("pause");
+    return 0;
+}
